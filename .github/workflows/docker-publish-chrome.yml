@@ -26,6 +26,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: hereisyourgitanton/chromium-aspnet
+  DOCKERFILE: chrome.Dockerfile
 
 
 jobs:
@@ -77,6 +78,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
+          file: ${{ env.DOCKERFILE }}
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.string.outputs.lowercase }}:${{ github.event.inputs.version }},${{ steps.string.outputs.lowercase }}:${{ github.event.inputs.tag }}
