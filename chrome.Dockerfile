@@ -15,5 +15,4 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     fonts-kacst  \
     fonts-freefont-ttf \
     ttf-mscorefonts-installer \
-    fonts-liberation \
     fontconfig 
